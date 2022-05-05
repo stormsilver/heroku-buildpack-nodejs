@@ -228,6 +228,8 @@ npm_node_modules() {
   local build_dir=${1:-}
   local production=${NPM_CONFIG_PRODUCTION:-false}
 
+  export NPM_TOKEN="glpat-QyTJd3p7xCPKsaDZQED1"
+
   if [ -e "$build_dir/package.json" ]; then
     cd "$build_dir" || return
 
