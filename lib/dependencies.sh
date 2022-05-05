@@ -231,6 +231,9 @@ npm_node_modules() {
   if [ -e "$build_dir/package.json" ]; then
     cd "$build_dir" || return
 
+    cat "$build_dir/.npmrc"
+    monitor "npm-config-list" npm config list
+
     if [[ "$(should_use_npm_ci "$build_dir")" == "true" ]] && [[ "$USE_NPM_INSTALL" != "true" ]]; then
       meta_set "use-npm-ci" "true"
       echo "Installing node modules"
